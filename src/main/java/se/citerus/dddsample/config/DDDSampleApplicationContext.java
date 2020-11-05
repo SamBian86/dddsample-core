@@ -27,15 +27,15 @@ import se.citerus.dddsample.infrastructure.routing.ExternalRoutingService;
 @ImportResource({ "classpath:context-interfaces.xml", "classpath:context-infrastructure-messaging.xml",
 		"classpath:context-infrastructure-persistence.xml" })
 public class DDDSampleApplicationContext {
-	// 货物仓库
+	// 货物仓库 context-infrastructure-persistence.xml 注入
 	@Autowired
 	CargoRepository cargoRepository;
 
-	// 位置仓库
+	// 位置仓库 context-infrastructure-persistence.xml 注入
 	@Autowired
 	LocationRepository locationRepository;
 	
-	// 航程仓库
+	// 航程仓库 context-infrastructure-persistence.xml 注入
 	@Autowired
 	VoyageRepository voyageRepository;
 	
@@ -43,27 +43,27 @@ public class DDDSampleApplicationContext {
 	@Autowired
 	GraphTraversalService graphTraversalService;
 
-	// 路由服务
+	// 路由服务 当前类中的Bean方法注入
 	@Autowired
 	RoutingService routingService;
 
-	// 事件处理工厂
+	// 事件处理工厂 当前类中的Bean方法注入
 	@Autowired
 	HandlingEventFactory handlingEventFactory;
 
-	// 事件处理仓库
+	// 事件处理仓库 context-infrastructure-persistence.xml 注入
 	@Autowired
 	HandlingEventRepository handlingEventRepository;
 
-	// 应用事件
+	// 应用事件 context-infrastructure-messaging.xml 注入
 	@Autowired
 	ApplicationEvents applicationEvents;
 
-	// 平台事务管理
+	// 事务管理 Spring事务管理器
 	@Autowired
 	PlatformTransactionManager platformTransactionManager;
 	
-	// 会话工厂
+	// 会话工厂 context-infrastructure-persistence.xml 注入
 	@Autowired
 	SessionFactory sessionFactory;
 
